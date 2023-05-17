@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AkademiPlusEdukator.BusinessLayer.Abstract
 {
-    internal interface IBottomGridService : IGenericService<BottomGrid>
+    public interface IBottomGridService : IGenericService<BottomGrid>
     {
     }
 }

@@ -16,6 +16,12 @@ builder.Services.AddScoped<ICategoryService, CategoryManager>();
 builder.Services.AddScoped<ICourseDal, EfCourseDal>();
 builder.Services.AddScoped<ICourseService, CourseManager>();
 
+builder.Services.AddScoped<IFeatureDal, EfFeatureDal>();
+builder.Services.AddScoped<IFeatureService, FeatureManager>();
+
+builder.Services.AddScoped<IBottomGridDal, EfBottomGridDal>();
+builder.Services.AddScoped<IBottomGridService, BottomGridManager>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
