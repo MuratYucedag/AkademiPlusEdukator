@@ -12,8 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
     <Folder Include="Logging\" />
     <Folder Include="FluentValidation\" />
     <Folder Include="Extensions\" />

@@ -1,6 +1,21 @@
+using AkademiPlusEdukator.BusinessLayer.Abstract;
+using AkademiPlusEdukator.BusinessLayer.Concrete;
+using AkademiPlusEdukator.DataAccessLayer.Abstract;
+using AkademiPlusEdukator.DataAccessLayer.Concrete;
+using AkademiPlusEdukator.DataAccessLayer.EntityFramework;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<Context>();
+
+builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
+builder.Services.AddScoped<ICategoryService, CategoryManager>();
+
+builder.Services.AddScoped<ICourseDal, EfCourseDal>();
+builder.Services.AddScoped<ICourseService, CourseManager>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

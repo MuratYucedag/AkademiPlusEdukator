@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AkademiPlusEdukator.BusinessLayer\AkademiPlusEdukator.BusinessLayer.csproj" />
     <ProjectReference Include="..\AkademiPlusEdukator.DataAccessLayer\AkademiPlusEdukator.DataAccessLayer.csproj" />
     <ProjectReference Include="..\AkademiPlusEdukator.EntityLayer\AkademiPlusEdukator.EntityLayer.csproj" />
   </ItemGroup>
