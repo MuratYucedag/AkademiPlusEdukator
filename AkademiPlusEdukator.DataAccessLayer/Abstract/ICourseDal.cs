@@ -9,5 +9,6 @@ namespace AkademiPlusEdukator.DataAccessLayer.Abstract
 {
     public interface ICourseDal : IGenericDal<Course>
     {
+        List<Course> GetCoursesWithCategories();
     }
 }

@@ -15,8 +15,6 @@ namespace AkademiPlusEdukator.EntityLayer.Concrete
         public int Score { get; set; }
         public string ImageUrl { get; set; }
         public int CategoryID { get; set; }
-
-        [JsonIgnore]
         public Category Category { get; set; }
     }
 }

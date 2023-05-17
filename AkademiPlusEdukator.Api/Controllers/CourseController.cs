@@ -1,6 +1,9 @@
-﻿using AkademiPlusEdukator.BusinessLayer.Abstract;
+﻿using AkademiPlusEdukator.Api.Models;
+using AkademiPlusEdukator.BusinessLayer.Abstract;
+using AkademiPlusEdukator.DataAccessLayer.Concrete;
 using AkademiPlusEdukator.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AkademiPlusEdukator.Api.Controllers
 {
@@ -45,6 +48,28 @@ namespace AkademiPlusEdukator.Api.Controllers
             var value = _courseService.TGetByID(id);
             _courseService.TDelete(value);
             return Ok();
+        }
+        [HttpGet("CourseWithCategory")]
+        public IActionResult CourseWithCategory()
+        {
+            var values = _courseService.TGetCoursesWithCategories();
+            return Ok(values);
+        }
+        [HttpGet("CourseWithCategory2")]
+        public IActionResult CourseWithCategory2()
+        {
+            Context context = new Context();
+            var values = context.Courses.Include(x => x.Category).Select(y => new Deneme
+            {
+                CourseID = y.CourseID,
+                CategoryID = y.CategoryID,
+                CategoryName = y.Category.CategoryName,
+                CourseTitle = y.CourseTitle,
+                ImageUrl = y.ImageUrl,
+                Price = y.Price,
+                Score = y.Score
+            }).ToList();
+            return Ok(values);
         }
     }
 }
