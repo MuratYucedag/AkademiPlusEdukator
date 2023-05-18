@@ -18,5 +18,6 @@ namespace AkademiPlusEdukator.DataAccessLayer.Concrete
         public DbSet<Category> Categories { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Feature> Features { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set; }
     }
 }
