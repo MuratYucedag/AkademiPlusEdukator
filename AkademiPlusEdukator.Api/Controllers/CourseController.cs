@@ -1,6 +1,7 @@
 ﻿using AkademiPlusEdukator.Api.Models;
 using AkademiPlusEdukator.BusinessLayer.Abstract;
 using AkademiPlusEdukator.DataAccessLayer.Concrete;
+using AkademiPlusEdukator.DtoLayer.NewFolder;
 using AkademiPlusEdukator.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,14 +26,31 @@ namespace AkademiPlusEdukator.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CourseList(Course course)
+        public IActionResult CourseAdd(CreateCourseAddDto createCourseAddDto)
         {
+            Course course = new Course()
+            {
+                CategoryID = createCourseAddDto.CategoryID,
+                Price = createCourseAddDto.Price,
+                CourseTitle = createCourseAddDto.CourseTitle,
+                ImageUrl = createCourseAddDto.ImageUrl,
+                Score = createCourseAddDto.Score
+            };
             _courseService.TInsert(course);
             return Ok();
         }
         [HttpPut]
-        public IActionResult CourseUpdate(Course course)
+        public IActionResult CourseUpdate(UpdateCourseDto updateCourseDto)
         {
+            Course course = new Course()
+            {
+                CourseID = updateCourseDto.CourseID,
+                Price = updateCourseDto.Price,
+                CourseTitle = updateCourseDto.CourseTitle,
+                ImageUrl = updateCourseDto.ImageUrl,
+                CategoryID = updateCourseDto.CategoryID,
+                Score = updateCourseDto.Score
+            };
             _courseService.TUpdate(course);
             return Ok();
         }

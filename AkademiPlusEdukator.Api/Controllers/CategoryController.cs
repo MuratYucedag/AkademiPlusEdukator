@@ -15,7 +15,7 @@ namespace AkademiPlusEdukator.Api.Controllers
             _categorService = categorService;
         }
 
-        [HttpGet]
+        [HttpGet("CategoryList")]
         public IActionResult CategoryList()
         {
             var values = _categorService.TGetList();

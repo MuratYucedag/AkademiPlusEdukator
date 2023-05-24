@@ -1,0 +1,27 @@
+﻿@model AkademiPlusEdukator.PresentationLayer.Dtos.Course.UpdateCourseDto
+@{
+    ViewData["Title"] = "UpdateCourse";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Kurs Güncelleme Sayfası</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="CourseID" />
+    <label>Kurs Adı</label>
+    <input type="text" class="form-control" asp-for="CourseTitle" />
+    <br />
+    <label>Kurs Kategorisi</label>
+    <input type="text" class="form-control" asp-for="CategoryID" />
+    <br />
+    <label>Kurs Fiyatı</label>
+    <input type="text" class="form-control" asp-for="Price" />
+    <br />
+    <label>Kurs Puanı</label>
+    <input type="text" class="form-control" asp-for="Score" />
+    <br />
+    <label>Kurs Görsel</label>
+    <input type="text" class="form-control" asp-for="ImageUrl" />
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>

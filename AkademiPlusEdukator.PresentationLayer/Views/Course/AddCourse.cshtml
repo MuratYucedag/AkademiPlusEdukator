@@ -1,0 +1,26 @@
+﻿@model AkademiPlusEdukator.PresentationLayer.Dtos.ResultCategoryDto
+@{
+    ViewData["Title"] = "AddCourse";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Yeni Kurs Ekleme Sayfası</h1>
+
+<form method="post">
+    <label>Kurs Kategorisi</label>
+    @Html.DropDownListFor(m => m.CategoryID, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
+    <br />
+    <label>Kurs Adı</label>
+    <input type="text" class="form-control" name="CourseTitle" />
+    <br />
+    <label>Kurs Fiyatı</label>
+    <input type="text" class="form-control" name="Price" />
+    <br />
+    <label>Kurs Puanı</label>
+    <input type="text" class="form-control" name="Score" />
+    <br />
+    <label>Kurs Resim Yolu</label>
+    <input type="text" class="form-control" name="ImageUrl" />
+    <br />
+    <button class="btn btn-primary">Kursu Ekle</button>
+</form>

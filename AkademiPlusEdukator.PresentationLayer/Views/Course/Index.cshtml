@@ -1,0 +1,49 @@
+﻿@model List<AkademiPlusEdukator.PresentationLayer.Dtos.ResultCourseWithCategoryDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="white_shd full margin_bottom_30">
+        <div class="full graph_head">
+            <div class="heading1 margin_0">
+                <h2>Kurs Listesi</h2>
+            </div>
+        </div>
+        <div class="table_section padding_infor_info">
+            <div class="table-responsive-sm">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kurs Başlığı</th>
+                            <th>Kategori</th>
+                            <th>Fiyat</th>
+                            <th>Puan</th>
+                            <th>Sil</th>
+                            <th>Güncelle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.CourseID</td>
+                                <td>@item.CourseTitle</td>
+                                <td>@item.CategoryName</td>
+                                <td>@item.Price</td>
+                                <td>@item.Score</td>
+                                <td><a href="/Course/DeleteCourse/@item.CourseID/" class="btn btn-outline-danger">Sil</a></td>
+                                <td><a href="/Course/UpdateCourse/@item.CourseID/" class="btn btn-outline-success">Güncelle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a href="/Course/AddCourse/" class="btn btn-outline-primary">Yeni Kurs Girişi</a>
+            </div>
+        </div>
+    </div>
+</div>
+
